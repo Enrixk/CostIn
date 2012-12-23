@@ -67,9 +67,8 @@
                <legend>Gast:</legend>
                <div>
                	<label for="name">Name:</label>
-                  <input type="text" name="name" id="name" placeholder="Gast auswählen" required autofocus/>
                	  <h:selectOneMenu name="name" id="konto" ">
-                    <f:selectItems value="#{members}" var="e" itemLabel="#{e.name}" itemValue="#{e}"/>
+                    <f:selectItems value="#{listAllMembers}" var="e" itemLabel="#{e.name}" itemValue="#{e}"/>
                   </h:selectOneMenu>
                   <!-- <label for="name">Name:</label>
                   <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>-->
