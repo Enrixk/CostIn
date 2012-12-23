@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>JBoss HTML5/Mobile Application</title>
+   <title>RitterLink</title>
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
    <script type="text/javascript" src="resources/js/jquery-1.6.4.js"></script>
@@ -34,7 +34,7 @@
 <div id="container">
    <!-- New HTML5 section tag -->
    <section>
-      <h1>Hallo Alex!</h1>
+      <h1>Cloud-Services für Geschäftspartner</h1>
 
       <p>Das ist eine Java EE Beispielanwendung mit REST. du kannst sie auch mit dem Telefon aufrufen dann wird sie für dein Handy optimiert</p>
 
@@ -43,10 +43,10 @@
       </p>
 
       <ul id="features">
-	      <li class="feature">Pure HTML client</li>
-	      <li class="feature">JAX-RS GET & POST end points</li>
-	      <li class="feature">HTML5 based page structure</li>
-	      <li class="feature">HTML5 form element & validation</li>
+	      <li class="feature">Catering Anwendung</li>
+	      <li class="feature">Anwendung für Reinigungskräfte</li>
+	      <li class="feature">Passenger Transportation Service</li>
+	      <li class="feature">Service für Lieferanten</li>
 	      <li class="feature">CSS3 selectors used for styling</li>
 	      <li class="feature">JAX-RS validation handling</li>
 	      <li class="feature">jQuery Mobile integration</li>
@@ -56,19 +56,23 @@
 
       <!-- New HTML5 article tag -->
       <article id="register_art">
-         <h2>Member Registration</h2>
+         <h2>Service for business purposes</h2>
 
-         <p>Enforces client side validation with HTML5 based constraints that match the annotation-based constraints
-            defined on the model class.  Also uses new HTML5 attributes such as placeholder, and autofocus.
+         <p>Service for business purposes erlaubt die Geschäftsabwicklung in der Cloud. 
          </p>
          
          <!-- For now mapping bean validation constraints from server side model is a manual task -->
          <form name="reg" id="reg">
             <fieldset>
-               <legend>Register a user:</legend>
+               <legend>Gast:</legend>
                <div>
-                  <label for="name">Name:</label>
-                  <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>
+               	<label for="name">Name:</label>
+                  <input type="text" name="name" id="name" placeholder="Gast auswählen" required autofocus/>
+               	  <h:selectOneMenu name="name" id="konto" ">
+                    <f:selectItems value="#{members}" var="e" itemLabel="#{e.name}" itemValue="#{e}"/>
+                  </h:selectOneMenu>
+                  <!-- <label for="name">Name:</label>
+                  <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>-->
                </div>
                <div>
                   <label for="email">Email:</label>
