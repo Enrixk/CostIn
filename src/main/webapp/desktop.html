@@ -67,9 +67,12 @@
                <legend>Gast:</legend>
                <div>
                	<label for="name">Name:</label>
-               	  <h:selectOneMenu name="name" id="konto" ">
-                    <f:selectItems value="#{listAllMembers}" var="e" itemLabel="#{e.name}" itemValue="#{e}"/>
-                  </h:selectOneMenu>
+               	<select>
+  					<optgroup label="Swedish Cars" value="#{listAllMembers}"></optgroup>
+    					
+  					
+				</select>
+               	 
                   <!-- <label for="name">Name:</label>
                   <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>-->
                </div>
