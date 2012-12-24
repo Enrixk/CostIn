@@ -26,6 +26,7 @@ function buildMemberRows(members) {
 function buildCustomerSelectBox() {
 	var html = '';
 	$.get('rest/members',
+			
 	         function(data) {
 	            var members = $(data).find('member');
 	            $(members).each(function() {
@@ -35,7 +36,7 @@ function buildCustomerSelectBox() {
 	             html += '</select>';
 	         }).error(function(error) {
 	            var errStatus = error.status;
-	            console.log("error updating table -" + errStatus);
+	            console.log("error table -" + errStatus);
 	         });
 
    $('#CustomerSelectBox').empty().append(html);
