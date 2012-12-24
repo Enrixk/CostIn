@@ -21,6 +21,25 @@ function buildMemberRows(members) {
    return html;
 }
 
+
+/* Stellt die Auswahlliste auf */
+function buildCustomerSelectBox() {
+	var $members;
+	$.get('rest/members',
+		function(data) {
+		$members = $(data).find('member');
+	});
+   var html = '<select id = "CustomerSelectBox">';
+   $($members).each(function() {
+      
+      html += '<option>' + member.find('name').text() + '</option>';    
+   });
+   html += '</select>';
+   return html;
+}
+
+
+
 /* Uses JAX-RS GET to retrieve current member list */
 function updateMemberTable() {
    $.get('rest/members',

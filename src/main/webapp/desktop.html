@@ -27,6 +27,7 @@
 
             registerMember(formValues);
          });
+         
       });
    </script>
 </head>
@@ -65,16 +66,9 @@
          <form name="reg" id="reg">
             <fieldset>
                <legend>Gast:</legend>
-               <div>
-               	<label for="name">Name:</label>
-               	<select>
-  					<optgroup label="Swedish Cars" value="#{listAllMembers}"></optgroup>
-    					
-  					
-				</select>
-               	 
-                  <!-- <label for="name">Name:</label>
-                  <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>-->
+               <div>             	 
+                  <label for="name">Name:</label>
+                  <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>
                </div>
                <div>
                   <label for="email">Email:</label>
