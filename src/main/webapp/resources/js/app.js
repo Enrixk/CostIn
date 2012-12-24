@@ -27,10 +27,10 @@ function buildCustomerSelectBox() {
 	var html = '';
 	$.get('rest/members',
 	         function(data) {
-	            var members = $(data).find('member');
-	            $(members).each(function() {
+	            var $members = $(data).find('member');
+	            $($members).each(function() {
 	                
-	                html += '<option>' + member.find('name').text() + '</option>';    
+	                html += '<option>' + $member.find('name').text() + '</option>';    
 	             });
 	             html += '</select>';
 	         }).error(function(error) {
