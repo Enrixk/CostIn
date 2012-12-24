@@ -29,8 +29,8 @@ function buildCustomerSelectBox() {
 	         function(data) {
 	            var $members = $(data).find('member');
 	            $($members).each(function() {
-	                
-	                html += '<option>' + $members.find('name').text() + '</option>';    
+	            	var $member = $(this);  
+	                html += '<option>' + $member.find('name').text() + '</option>';    
 	             });
 	             html += '</select>';
 	         }).error(function(error) {
