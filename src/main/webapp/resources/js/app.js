@@ -23,25 +23,20 @@ function buildMemberRows(members) {
 
 
 /* Stellt die Auswahlliste auf */
-function buildCustomerSelectBox() {
+function buildCustomerSelectBox(members) {
 	alert("buildCustomerSelectBox() aktiv");
 	var html = '';
 	html += '<select>';
-	$.get('rest/members',
-			function(data) {
-		    var $members = $(data).find('member');
-		    $($members).each(function() {
+	
+		    $(members).each(function() {
             	var member = $(this);  
                 html += '<option>' + member.find('name').text() + '</option>';    
              });
              html += '</select>';
-		     }).error(function(error) {
-		    	 var errStatus = error.status;
-		            console.log("error updating table -" + errStatus);
-		     });
+		     
 	
 	html += '</select>';
-	$('#CustomerSelectBox').empty().append(html);
+	$('#CustomerSelectBox').empty().append(html.toString());
 }
 
 
@@ -53,7 +48,7 @@ function updateMemberTable() {
             var $members = $(data).find('member');
 
             $('#members').empty().append(buildMemberRows($members));
-            buildCustomerSelectBox();
+            buildCustomerSelectBox($members);
          }).error(function(error) {
             var errStatus = error.status;
             console.log("error updating table -" + errStatus);
