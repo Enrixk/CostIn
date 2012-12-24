@@ -26,21 +26,22 @@ function buildMemberRows(members) {
 function buildCustomerSelectBox() {
 	alert("buildCustomerSelectBox() aktiv");
 	var html = '';
+	html += '<select>';
 	$.get('rest/members',
-			
-	         function(data) {
-	            var members = $(data).find('member');
-	            $(members).each(function() {
-	            	var member = $(this);  
-	                html += '<option>' + member.find('name').text() + '</option>';    
-	             });
-	             html += '</select>';
-	         }).error(function(error) {
-	            var errStatus = error.status;
-	            console.log("error table -" + errStatus);
-	         });
-
-   $('#CustomerSelectBox').empty().append(html);
+			function(data) {
+		    var $members = $(data).find('member');
+		    $($members).each(function() {
+            	var member = $(this);  
+                html += '<option>' + member.find('name').text() + '</option>';    
+             });
+             html += '</select>';
+		     }).error(function(error) {
+		    	 var errStatus = error.status;
+		            console.log("error updating table -" + errStatus);
+		     });
+	
+	html += '</select>';
+	$('#CustomerSelectBox').empty().append(html);
 }
 
 
