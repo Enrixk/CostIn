@@ -24,6 +24,7 @@ function buildMemberRows(members) {
 
 /* Stellt die Auswahlliste auf */
 function buildCustomerSelectBox() {
+	alert("buildCustomerSelectBox() aktiv");
 	var html = '';
 	$.get('rest/members',
 			
