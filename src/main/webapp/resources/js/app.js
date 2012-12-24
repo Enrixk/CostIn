@@ -30,7 +30,7 @@ function buildCustomerSelectBox() {
 	            var $members = $(data).find('member');
 	            $($members).each(function() {
 	                
-	                html += '<option>' + $member.find('name').text() + '</option>';    
+	                html += '<option>' + $members.find('name').text() + '</option>';    
 	             });
 	             html += '</select>';
 	         }).error(function(error) {
