@@ -24,19 +24,21 @@ function buildMemberRows(members) {
 
 /* Stellt die Auswahlliste auf */
 function buildCustomerSelectBox() {
-	var $members;
+	var html = '';
 	$.get('rest/members',
-		function(data) {
-		$members = $(data).find('member');
-	});
-   var html = '<select id = "CustomerSelectBox">';
-   $($members).each(function() {
-      
-      html += '<option>' + $member.find('name').text() + '</option>';    
-   });
-   html += '</select>';
+	         function(data) {
+	            var members = $(data).find('member');
+	            $(members).each(function() {
+	                
+	                html += '<option>' + member.find('name').text() + '</option>';    
+	             });
+	             html += '</select>';
+	         }).error(function(error) {
+	            var errStatus = error.status;
+	            console.log("error updating table -" + errStatus);
+	         });
+
    $('#CustomerSelectBox').empty().append(html);
-   return html;
 }
 
 
