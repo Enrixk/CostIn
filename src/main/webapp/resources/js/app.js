@@ -32,9 +32,10 @@ function buildCustomerSelectBox() {
    var html = '<select id = "CustomerSelectBox">';
    $($members).each(function() {
       
-      html += '<option>' + member.find('name').text() + '</option>';    
+      html += '<option>' + $member.find('name').text() + '</option>';    
    });
    html += '</select>';
+   $('#CustomerSelectBox').empty().append(html);
    return html;
 }
 
