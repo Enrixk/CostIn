@@ -21,10 +21,16 @@ function buildMemberRows(members) {
    return html;
 }
 
+function buildDatepicker(){
+	var html='<label for="meeting">Anreise : </label><input id="meeting" type="date" value="2011-01-13"/>';
+	html += '<label for="meeting">Abreise : </label><input id="meeting" type="date" value="2011-01-13"/>';
+	$('#Datepicker').empty().append(html);
+	
+}
+
 
 /* Stellt die Auswahlliste auf */
 function buildCustomerSelectBox(members) {
-	alert("buildCustomerSelectBox() aktiv");
 	var html = '';
 	html += '<select>';
 	
@@ -36,7 +42,7 @@ function buildCustomerSelectBox(members) {
 		     
 	
 	html += '</select>';
-	$('#CustomerSelectBox').empty().append(html.toString());
+	$('#CustomerSelectBox').empty().append(html);
 }
 
 
