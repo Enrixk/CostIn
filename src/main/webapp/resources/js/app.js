@@ -54,6 +54,7 @@ function updateMemberTable() {
             var $members = $(data).find('member');
 
             $('#members').empty().append(buildMemberRows($members));
+            buildDatepicker();
             buildCustomerSelectBox($members);
          }).error(function(error) {
             var errStatus = error.status;
