@@ -3,63 +3,35 @@ Core JavaScript functionality for the application.  Performs the required
 Restful calls, validates return values, and populates the member table.
  */
 
+/* Get the member template */
+function getMemberTemplate() {
+	$.ajax({
+        url: "resources/tmpl/member.tmpl",
+        dataType: "html",
+        success: function( data ) {
+            $( "head" ).append( data );
+            updateMemberTable();
+        }
+    });
+}
+
 /* Builds the updated table for the member list */
 function buildMemberRows(members) {
-   var html = '';
-   $(members).each(function() {
-      var $member = $(this);
-      html += '<tr class="member">';
-      var memId = $member.find('id').text();
-      html += '<td>' + memId + '</td>';
-      html += '<td>' + $member.find('name').text() + '</td>';
-      html += '<td>' + $member.find('email').text() + '</td>';
-      html += '<td>' + $member.find('phoneNumber').text() + '</td>';
-      html += '<td><a href="rest/members/' + memId +
-               '" target="_blank" class="resturl">XML</a> / <a href="rest/members/' +
-               memId + '/json" target="_blank" class="resturl">JSON</a></td>';
-   });
-   return html;
+	return _.template( $( "#member-tmpl" ).html(), {"members": members});
 }
-
-function buildDatepicker(){
-	var html='<label for="meeting">Anreise : </label><input id="meeting" type="date" value="2011-01-13"/>';
-	html += '<label for="meeting">Abreise : </label><input id="meeting" type="date" value="2011-01-13"/>';
-	$('#Datepicker').empty().append(html);
-	
-}
-
-
-/* Stellt die Auswahlliste auf */
-function buildCustomerSelectBox(members) {
-	var html = '';
-	html += '<select>';
-	
-		    $(members).each(function() {
-            	var member = $(this);  
-                html += '<option>' + member.find('name').text() + '</option>';    
-             });
-             html += '</select>';
-		     
-	
-	html += '</select>';
-	$('#CustomerSelectBox').empty().append(html);
-}
-
-
 
 /* Uses JAX-RS GET to retrieve current member list */
 function updateMemberTable() {
-   $.get('rest/members',
-         function(data) {
-            var $members = $(data).find('member');
-
-            $('#members').empty().append(buildMemberRows($members));
-            buildDatepicker();
-            buildCustomerSelectBox($members);
-         }).error(function(error) {
-            var errStatus = error.status;
-            console.log("error updating table -" + errStatus);
-         });
+   $.ajax({
+	   url: "rest/members/json",
+	   cache: false,
+	   success: function(data) {
+            $('#members').empty().append(buildMemberRows(data));
+       },
+       error: function(error) {
+            //console.log("error updating table -" + error.status);
+       }
+   });
 }
 
 /*
@@ -74,7 +46,7 @@ function registerMember(formValues) {
 
    $.post('rest/members', formValues,
          function(data) {
-            console.log("Member registered");
+            //console.log("Member registered");
 
             //clear input fields
             $('#reg')[0].reset();
@@ -84,10 +56,8 @@ function registerMember(formValues) {
 
             updateMemberTable();
          }).error(function(error) {
-            var errStatus = error.status;
-
             if ((error.status == 409) || (error.status == 400)) {
-               console.log("Validation error registering user!");
+               //console.log("Validation error registering user!");
 
                var errorMsg = JSON.parse(error.responseText);
 
@@ -96,7 +66,7 @@ function registerMember(formValues) {
                         .insertAfter($('#' + index));
                });
             } else {
-               console.log("error - unknown server issue");
+               //console.log("error - unknown server issue");
                $('#formMsgs').append($('<span class="invalid">Unknown server error</span>'));
             }
          });

@@ -3,11 +3,11 @@
    <modelVersion>4.0.0</modelVersion>
 
    <groupId>org.RitterLink</groupId>
-   <artifactId>RitterLink</artifactId>
+   <artifactId>CostIn</artifactId>
    <version>1.0-SNAPSHOT</version>
    <packaging>war</packaging>
 
-   <name>RitterLink</name>
+   <name>CostIn</name>
    <description>A Java EE 6 HTML5 mobile web application for use with JBoss, generated from the jboss-javaee6-html5-mobile-archetype</description>
 
    <properties>
@@ -131,14 +131,14 @@
       <dependency>
          <groupId>org.jboss.arquillian.junit</groupId>
          <artifactId>arquillian-junit-container</artifactId>
-         <version>1.0.0.CR4</version>
+         <version>1.0.0.CR7</version>
          <scope>test</scope>
       </dependency>
             
       <dependency>
          <groupId>org.jboss.arquillian.protocol</groupId>
          <artifactId>arquillian-protocol-servlet</artifactId>
-         <version>1.0.0.CR4</version>
+         <version>1.0.0.CR7</version>
          <scope>test</scope>               
       </dependency>
 
@@ -174,7 +174,7 @@
          <plugin>
             <groupId>org.jboss.as.plugins</groupId>
             <artifactId>jboss-as-maven-plugin</artifactId>
-            <version>7.1.0.Beta1b</version>
+            <version>7.1.0.CR1</version>
          </plugin>
       </plugins>
    </build>
@@ -246,7 +246,7 @@
             <dependency>
                <groupId>org.jboss.as</groupId>
                <artifactId>jboss-as-arquillian-container-managed</artifactId>
-               <version>7.1.0.Beta1b</version>
+               <version>7.1.0.CR1b</version>
                <scope>test</scope>
             </dependency>
          </dependencies>
@@ -294,7 +294,7 @@
             <dependency>
                <groupId>org.jboss.as</groupId>
                <artifactId>jboss-as-arquillian-container-remote</artifactId>
-               <version>7.1.0.Beta1b</version>
+               <version>7.1.0.CR1b</version>
                <scope>test</scope>
             </dependency>
          </dependencies>

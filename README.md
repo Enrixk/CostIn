@@ -1,4 +1,4 @@
-RitterLink
+CostIn
 ========================
 
 What is it?
@@ -68,9 +68,9 @@ You can now deploy the artifact by executing the following command:
 
     mvn jboss-as:deploy
 
-This will deploy `target/RitterLink`.
+This will deploy `target/CostIn`.
  
-The application will be running at the following URL <http://localhost:8080/RitterLink/>.
+The application will be running at the following URL <http://localhost:8080/CostIn/>.
 
 To undeploy run this command:
 
