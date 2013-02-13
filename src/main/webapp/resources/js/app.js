@@ -34,6 +34,30 @@ function updateMemberTable() {
    });
 }
 
+/* Uses JAX-RS GET to retrieve Accounts */
+function updateAccountsTable() {
+   $.ajax({
+	   url: "rest/costs/accounts",
+	   cache: false,
+	   success: function(data) {
+		   buildAccountsRows(data);
+       },
+       error: function(error) {
+            console.log("error updating table -" + error.status);
+       }
+   });
+}
+
+/* Builds the updated table for the member list*/ 
+function buildAccountsRows(accounts) {
+	_.each(accounts, function(account) {
+		alert(account.label);
+		 $('#accounts').append( '<option value="'+account.id+'">'+account.label+'</option>');
+	});
+	
+}
+
+
 /*
 Attempts to register a new member using a JAX-RS POST.  The callbacks
 the refresh the member table, or process JAX-RS response codes to update
@@ -71,3 +95,37 @@ function registerMember(formValues) {
             }
          });
 }
+
+function registerExpenditures(formValues) {
+	alert("registerExpenditures meldet sich bereit ");
+	   //clear existing  msgs
+	   $('span.invalid').remove();
+	   $('span.success').remove();
+
+	   $.post('rest/costs', formValues,
+	         function(data) {
+	            console.log("Expenditures registered");
+
+	            //clear input fields
+	            $('#reg')[0].reset();
+
+	            //mark success on the registration form
+	            $('#formMsgs').append($('<span class="success">Kosten wurden verbucht</span>'));
+
+	            
+	         }).error(function(error) {
+	            if ((error.status == 409) || (error.status == 400)) {
+	               console.log("Validation error registering user!");
+
+	               var errorMsg = JSON.parse(error.responseText);
+
+	               $.each(errorMsg, function(index, val){
+	                  $('<span class="invalid">' + val + '</span>')
+	                        .insertAfter($('#' + index));
+	               });
+	            } else {
+	               console.log("error - unknown server issue");
+	               $('#formMsgs').append($('<span class="invalid">Unknown server error</span>'));
+	            }
+	         });
+	}

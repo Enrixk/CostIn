@@ -1,5 +1,6 @@
 package org.RitterLink.model;
 
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
@@ -22,6 +24,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name="MemberCostIn", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Member implements Serializable {
    /** Default value included to remove warning. Remove or modify at will. **/
+
    private static final long serialVersionUID = 1L;
 
    @Id

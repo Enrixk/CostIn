@@ -12,6 +12,7 @@
     <script type="text/javascript" src="resources/js/yepnope.1.0.2-min.js"></script>
     <script type="text/javascript" src="resources/js/underscore-min.js"></script>
     <script type="text/javascript" src="resources/js/app.js"></script>
+    
     <script type="text/javascript">
         yepnope([{
             //Load CDN hosted jQuery and fall back to local file
@@ -56,9 +57,11 @@
             },
             complete: function() {
                 $( document ).ready( function() {
+                	updateMemberTable();
                     $( "#container" ).show();
                     //Fetches the initial member table
                     getMemberTemplate();
+                    
 
                     //Register a event listener on the sumbit action
                     $('#reg').submit(function(event) {
@@ -135,7 +138,7 @@
                     <a href="#info-aside" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext" data-rel="dialog"></a>
                 </div>
                 <!-- /Header -->
-                <h2>Member Registration</h2>
+                <h2>Cost-In-Service</h2>
 
                 <div data-role="content">
                     <p class="desktop-only">Enforces client side validation with HTML5 based constraints that match the annotation-based constraints defined on the model class. Also uses new HTML5 attributes such as placeholder, and autofocus.</p>
@@ -143,7 +146,10 @@
                     <!-- For now mapping bean validation constraints from server side model is a manual task -->
                     <form name="reg" id="reg" data-ajax="false">
                         <fieldset>
-                            <legend>Register a user:</legend>
+                            <legend>Aufwendungen verbuchen mit dem Cost-In-Service:</legend>
+                            <div id="accounts">
+                            
+                            </div>
                             <div>
                                 <label for="name">Name:</label>
                                 <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>
@@ -154,7 +160,7 @@
                             </div>
                             <div>
                                 <label for="phoneNumber">Phone #:</label>
-                                <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{10,12}" placeholder="Your Phone #" required/>
+                                <input type="phone" name="phoneNumber" id="phoneNumber" pattern="[0-9]{10,12}" placeholder="Your Phone #" required/>
                             </div>
                             <div id="formMsgs"></div>
                             <div data-role="controlgroup" data-type="horizontal">
