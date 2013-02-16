@@ -1,21 +1,22 @@
 package org.RitterLink.model;
 
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlIDREF;
@@ -23,12 +24,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 
+import org.RitterLink.model.Expenditure;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @XmlRootElement
 @Table
-public class Account implements Serializable {
+public class SubAccount implements Serializable {
 	
 
 	private static final long serialVersionUID = 1L;
@@ -41,21 +43,14 @@ public class Account implements Serializable {
 	@NotNull
 	@NotEmpty
 	private String label;
-
-	@Null
-	@Column(name = "soll")
-	private String soll;
-
-	@Null
-	@Column(name = "haben")
-	private String haben;
-
 	
-	@OneToMany(mappedBy="account",fetch=FetchType.EAGER)
-	@XmlTransient
-    private List<SubAccount> subAccounts; 
-	
-	
+	@ManyToOne
+    @JoinColumn(name="ACCOUNT_ID")
+	private Account account;
+
+	@OneToMany(mappedBy="subAccount")
+    private List<Expenditure> expenditures; 
+
 	public int getId() {
 		return id;
 	}
@@ -71,29 +66,21 @@ public class Account implements Serializable {
 	public void setLabel(String label) {
 		this.label = label;
 	}
-
-
-	public String getSoll() {
-		return soll;
+	@XmlTransient
+	public List<Expenditure> getExpenditures() {
+		return expenditures;
 	}
 
-	public void setSoll(String soll) {
-		this.soll = soll;
-	}
-
-	public String getHaben() {
-		return haben;
-	}
-
-	public void setHaben(String haben) {
-		this.haben = haben;
+	public void setExpenditures(List<Expenditure> expenditures) {
+		this.expenditures = expenditures;
 	}
 	@XmlTransient
-	public List<SubAccount> getSubAccounts() {
-		return subAccounts;
+	public Account getAccount() {
+		return account;
 	}
 
-	public void setSubAccounts(List<SubAccount> subAccounts) {
-		this.subAccounts = subAccounts;
+	public void setAccount(Account account) {
+		this.account = account;
 	}
+	
 }

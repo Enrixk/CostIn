@@ -39,8 +39,9 @@ function updateAccountsTable() {
    $.ajax({
 	   url: "rest/costs/accounts",
 	   cache: false,
-	   success: function(data) {
-		   buildAccountsRows(data);
+	   dataType: "xml",
+	   success: function(xmldata) {
+		   buildOptionsForAccount_id(xmldata);
        },
        error: function(error) {
             console.log("error updating table -" + error.status);
@@ -49,13 +50,53 @@ function updateAccountsTable() {
 }
 
 /* Builds the updated table for the member list*/ 
-function buildAccountsRows(accounts) {
+function buildOptionsForAccount_id(xmldata) {
+	$(xmldata).find("account").each(function() {
+        var id = $(this).find("id").text();
+        var label = $(this).find("label").text();
+        $('#accounts').append( '<option value="'+id+'">'+label+'</option>');
+    });
+	/*
 	_.each(accounts, function(account) {
-		alert(account.label);
 		 $('#accounts').append( '<option value="'+account.id+'">'+account.label+'</option>');
 	});
-	
+	*/
 }
+
+function subaccount(){
+	var account_id = $("#accounts").val();
+	if(account_id=="default"){
+		$('#subaccounts')
+        .find('option')
+        .remove()
+        .end();	
+	}else{
+		$.ajax({
+		url: "rest/costs/accounts/subaccounts/"+account_id,
+		dataType: "xml",
+		cache: false,
+		success: function(xmldata) {
+			$('#subaccounts')
+	        .find('option')
+	        .remove()
+	        .end();
+			$(xmldata).find("subAccount").each(function() {
+				var id = $(this).find("id").text();
+			    var label = $(this).find("label").text();
+			    //alert("id: "+id+" Label: "+label );
+			    $('#subaccounts')
+			    .find('option')
+			    .end()
+			    .append('<option value="'+id+'">'+label+'</option>');
+			});
+			   
+	     },
+	     error: function(error) {
+	    	 console.log("error updating table -" + error.status);
+	     }
+	     });
+	}
+}	
 
 
 /*
@@ -97,7 +138,6 @@ function registerMember(formValues) {
 }
 
 function registerExpenditures(formValues) {
-	alert("registerExpenditures meldet sich bereit ");
 	   //clear existing  msgs
 	   $('span.invalid').remove();
 	   $('span.success').remove();

@@ -22,12 +22,15 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.RitterLink.model.Account;
 import org.RitterLink.model.Expenditure;
+import org.RitterLink.model.Member;
+import org.RitterLink.model.SubAccount;
 
 
 
@@ -52,21 +55,26 @@ public class CostInService {
 	private Expenditure expenditure;
 	
 	@Inject
+	private SubAccount subAccount;
+	
+	@Inject
 	private Account account;
 
     @POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response createExpenditure(@FormParam("account_id") String account_id, @FormParam("datum") String datum, @FormParam("description") String description, @FormParam("soll") String soll){
+	public Response createExpenditure(@FormParam("select-subAccount") String subaccount_id, @FormParam("checkbox-realm") String realm, @FormParam("datum") String datum, @FormParam("description") String description, @FormParam("soll") String soll){
     	Response.ResponseBuilder builder = null;
-    	account = em.find(Account.class, Integer.parseInt(account_id));
-    	expenditure.setAccount(account);
+    	subAccount = em.find(SubAccount.class, Integer.parseInt(subaccount_id));
+    	expenditure.setSubAccount(subAccount);
     	expenditure.setDatum(datum);
+    	expenditure.setRealm(realm);
     	expenditure.setDescription(description);
     	expenditure.setSoll(soll);
+    	expenditure.setHaben("0,00");
     	try {
              //Register the member
-             log.info("Registering " + expenditure.getAccount().getLabel());
+             log.info("Registering " + expenditure.getSubAccount().getLabel());
              em.persist(expenditure);
 
              //Trigger the creation event
@@ -110,18 +118,27 @@ public class CostInService {
     
     @GET
     @Path("/expenditures")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Expenditure> listAllExpendituresJSON() {
+    @Produces("text/xml")
+    public List<Expenditure> listAllExpenditures() {
        final ArrayList<Expenditure> results = (ArrayList<Expenditure>) em.createQuery("SELECT e FROM Expenditure e", Expenditure.class).getResultList();
        return results;
     }
     
     @GET
     @Path("/accounts")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces("text/xml")
     public List<Account> listAllAccounts() {
        final ArrayList<Account> results = (ArrayList<Account>) em.createQuery("SELECT a FROM Account a", Account.class).getResultList();
        return results;
+    }
+    
+    @GET
+    @Path("/accounts/subaccounts/{id:[0-9][0-9]*}")
+    @Produces("text/xml")
+    public List<SubAccount> lookupSubAccountsByAccountIdJSON(@PathParam("id") int id) {
+       account= em.find(Account.class, id);
+       List<SubAccount> result= account.getSubAccounts();
+       return result;
     }
 
 

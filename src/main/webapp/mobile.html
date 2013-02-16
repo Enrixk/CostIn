@@ -1,10 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-   <title>RitterLink Hoteladministration</title>
+   <title>RitterLink</title>
 
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta charset="utf-8" />
    
    <!-- Set viewport scaling and zoom features -->
    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0;">
@@ -13,26 +12,18 @@
    <script type="text/javascript" src="resources/js/yepnope.1.0.2-min.js"></script>
    <script type="text/javascript" src="resources/js/underscore-min.js"></script>
    <script type="text/javascript" src="resources/js/app.js"></script>
-   <link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" /> 
-  <script src="jQuery.ui.datepicker.js"></script>
-  <script src="jquery.ui.datepicker.mobile.js"></script>
+   <link rel="stylesheet" href="resources/css/jquery.ui.datepicker.mobile.css" /> 
+  <script src="resources/js/jquery.ui.datepicker.js"></script>
+  <script src="resources/js/jquery.ui.datepicker.mobile.js"></script>
    
     <link type="text/css" rel="stylesheet" href="resources/css/jquery.mobile-1.0rc2.min.css"/>
-    <link type="text/css" rel="stylesheet" href="resources/css/jquery.ui.datepicker.mobile.css"/>
    <script type="text/javascript" src="resources/js/jquery-1.6.4.js"></script>
-   <script type="text/javascript" src="resources/js/jquery.ui.datepicker.mobile.js"></script>
-    <script type="text/javascript" src="resources/js/jQuery.ui.datepicker.js"></script>
-    
    <script type="text/javascript" src="resources/js/jquery.mobile-1.0rc2.min.js"></script>
    
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
    <script type="text/javascript">
-   $(document).bind('mobileinit',function(){
-	   $.mobile.selectmenu.prototype.options.nativeMenu = false;
-	   $.mobile.page.prototype.options.degradeInputs.date = true;
-	});
         yepnope([{
             //Load CDN hosted jQuery and fall back to local file
             load: "http://code.jquery.com/jquery-1.6.4.min.js",
@@ -115,35 +106,43 @@
 
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-	<article id="register-sec" data-role="page">
+	<article id="menu_1" data-role="page">
    		<!-- Header -->
    		<div data-role="header" data-theme="a" class="header">
     		<img class="header_logo" src="resources/gfx/icon_medium.png"/>
-			<h3>Kosten verbuchen</h3>
-      		<a href="#info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
+			<h3>RitterLink</h3>
    		</div>
    		<!-- /Header -->
    		<!-- For now mapping bean validation constraints from server side model is a manual task -->
    		<form name="reg-expenditures" id="reg-expenditures" method="post" data-ajax="false">
       		<fieldset>
       			<div data-role="fieldcontain">
-					<label for="select-account" class="select">Konto:</label>
-					<select name="account_id" id="accounts">
-						<option>bitte w�hlen</option>
-						
+					<label for="select-account">Konto:</label>
+					<select name="select-account" id="accounts" onchange="subaccount()">
+						<option value="default">Konto wählen</option>
 					</select>
 				</div>
-				
-         		<div data-role="fieldcontain">
-            		<label for="datum">Date Input:</label>
-	     	    	<input type="date" name="datum" id="datum" value=""  />
-	     	    </div>
-				
-         		
-         		<div data-role="fieldcontain">
-            		<label for="description">Text:</label>
-            		<input type="text" name="description" id="description" placeholder="Buchungstext" required/>
+				<div data-role="fieldcontain">
+					<label for="select-subAccount">Text:</label>
+         		 	<select name="select-subAccount" id="subaccounts">
+         		 		<option value="default">Buchungstext wählen</option>
+         		 	</select>
+				</div>
+				<div data-role="fieldcontain">
+            		<label for="datum">Notiz:</label>
+					<input type="text" name="description" id="description" />
          		</div>
+         		<div data-role="fieldcontain">
+            		<label for="datum">Datum:</label>
+					<input type="date" name="datum" id="datum" />
+         		</div>
+         		<div data-role="fieldcontain">
+         			<fieldset data-role="controlgroup">
+         				<legend>Bereich:</legend>
+ 						<label for="checkbox-realm">Pensionsbetrieb</label>	
+						<input type="checkbox" value="pension" name="checkbox-realm" id="realm" />  
+					</fieldset> 				
+				</div>
          		<div data-role="fieldcontain">
             		<label for="soll">Betrag:</label>
             		<input type="text" name="soll" id="soll"
@@ -161,12 +160,12 @@
    	<!-- Footer -->
    	<div class="footer" data-role="footer">
       <div class="footer_left">
-         <a href="#intro-sec" data-role="button" data-icon="home">Home</a>
+         <a href="#menu_1" data-role="button" data-icon="home">Home</a>
       </div>
 
       <div class="footer_right">
-         <span class="footer_txt">Member:</span>
-         <a href="#register-sec" data-role="button" data-icon="plus">Add</a>
+         <span class="footer_txt">Weiter:</span>
+         <a href="#register-sec" data-role="button" data-icon="plus"></a>
          <a href="#member-sec" data-role="button" data-icon="grid">List</a>
       </div>
    </div>
@@ -174,6 +173,12 @@
    </article>
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
 
 
 </div>

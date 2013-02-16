@@ -15,6 +15,8 @@
       <property name="hibernate.format_sql" value="true"/>
       <property name="hibernate.transaction.flush_before_completion" value="true"/>
       <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+      <property name="useUnicode" value="true"/>  
+      <property name="characterEncoding" value="UTF-8"/>  
       </properties>
    </persistence-unit>
 </persistence>

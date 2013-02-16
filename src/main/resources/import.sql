@@ -1,6 +1,20 @@
 -- You can use this file to load seed data into the database using SQL statements
 insert into MemberCostIn(id, name, email, phone_number) values (0, 'John Smith', 'john.smith@mailinator.com', '2125551212')
-insert into Account(id, label) values (1, 'Gas')
-insert into Account(id, label) values (2, 'Strom')
-insert into Account(id, label) values (3, 'Wasser')
+insert into Account(id, label) values (1, 'Energiekosten')
+insert into SubAccount(id, ACCOUNT_ID, label) values (1,1, 'Strom')
+insert into SubAccount(id, ACCOUNT_ID, label) values (2,1, 'Gas')
+insert into SubAccount(id, ACCOUNT_ID, label) values (3,1, 'Wasser')
+insert into SubAccount(id, ACCOUNT_ID, label) values (4,1, 'Kohlen')
+insert into SubAccount(id, ACCOUNT_ID, label) values (5,1, 'Holz')
+insert into Account(id, label) values (2, 'Lebensmittel')
+insert into SubAccount(id, ACCOUNT_ID, label) values (6,2, 'Backwaren')
+insert into SubAccount(id, ACCOUNT_ID, label) values (7,2, 'Kaffee')
+insert into SubAccount(id, ACCOUNT_ID, label) values (8,2, 'Marmelade')
+insert into SubAccount(id, ACCOUNT_ID, label) values (9,2, 'alkoholfreie Getränke')
+insert into SubAccount(id, ACCOUNT_ID, label) values (10,2,'alkoholische Getränke')
+insert into Account(id, label) values (3, 'Reinigung, Hygiene und Kosmetik')
+insert into SubAccount(id, ACCOUNT_ID, label) values (11,3, 'Toilettenpapier')
+insert into SubAccount(id, ACCOUNT_ID, label) values (12,3, 'Waschmittel')
+insert into SubAccount(id, ACCOUNT_ID, label) values (13,3, 'Körperpflege')
+
 
