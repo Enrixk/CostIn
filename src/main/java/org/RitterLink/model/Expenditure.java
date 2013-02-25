@@ -9,13 +9,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+<<<<<<< HEAD
 import javax.persistence.Transient;
+=======
+>>>>>>> db4fd4492fe5b8a26f168b6f3aedc76c7d9849d1
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+<<<<<<< HEAD
 import javax.xml.bind.annotation.XmlElement;
+=======
+>>>>>>> db4fd4492fe5b8a26f168b6f3aedc76c7d9849d1
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -41,10 +47,18 @@ public class Expenditure implements Serializable  {
 	@Column(name="datum")
 	private String datum;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> db4fd4492fe5b8a26f168b6f3aedc76c7d9849d1
 	@NotNull
 	@NotEmpty
 	private String description;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> db4fd4492fe5b8a26f168b6f3aedc76c7d9849d1
 	@NotNull
 	@Column(name = "soll")
 	private String soll;
@@ -52,10 +66,18 @@ public class Expenditure implements Serializable  {
 	@NotNull
 	@Column(name = "haben")
 	private String haben;
+<<<<<<< HEAD
+=======
+	
+	@NotNull
+	@Column(name = "realm")
+	private String realm;
+>>>>>>> db4fd4492fe5b8a26f168b6f3aedc76c7d9849d1
 
 	@ManyToOne
     @JoinColumn(name="SUBACCOUNT_ID")
 	private SubAccount subAccount;
+<<<<<<< HEAD
 	
 	@Transient
 	@XmlElement
@@ -64,6 +86,8 @@ public class Expenditure implements Serializable  {
 	@Transient
 	@XmlElement
 	private String Subaccount;
+=======
+>>>>>>> db4fd4492fe5b8a26f168b6f3aedc76c7d9849d1
 
 	public int getId() {
 		return id;
@@ -113,6 +137,7 @@ public class Expenditure implements Serializable  {
 		this.subAccount = subAccount;
 	}
 
+<<<<<<< HEAD
 	public String getAccount() {
 		return this.getSubAccount().getAccount().getLabel();
 	}
@@ -128,6 +153,14 @@ public class Expenditure implements Serializable  {
 
 	public void setSubaccount(String subaccount) {
 		Subaccount = subaccount;
+=======
+	public String getRealm() {
+		return realm;
+	}
+
+	public void setRealm(String realm) {
+		this.realm = realm;
+>>>>>>> db4fd4492fe5b8a26f168b6f3aedc76c7d9849d1
 	}
 
 
