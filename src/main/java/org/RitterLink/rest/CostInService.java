@@ -63,19 +63,17 @@ public class CostInService {
     @POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-<<<<<<< HEAD
-	public Response createExpenditure(@FormParam("select-subAccount") String subaccount_id, @FormParam("datum") String datum, @FormParam("description") String description, @FormParam("soll") String soll){
-=======
+
+	
+
 	public Response createExpenditure(@FormParam("select-subAccount") String subaccount_id, @FormParam("checkbox-realm") String realm, @FormParam("datum") String datum, @FormParam("description") String description, @FormParam("soll") String soll){
->>>>>>> db4fd4492fe5b8a26f168b6f3aedc76c7d9849d1
+
     	Response.ResponseBuilder builder = null;
     	subAccount = em.find(SubAccount.class, Integer.parseInt(subaccount_id));
     	expenditure.setSubAccount(subAccount);
     	expenditure.setDatum(datum);
-<<<<<<< HEAD
-=======
+
     	expenditure.setRealm(realm);
->>>>>>> db4fd4492fe5b8a26f168b6f3aedc76c7d9849d1
     	expenditure.setDescription(description);
     	expenditure.setSoll(soll);
     	expenditure.setHaben("0,00");
@@ -125,11 +123,7 @@ public class CostInService {
     
     @GET
     @Path("/expenditures")
-<<<<<<< HEAD
     @Produces("text/xml; charset=UTF-8")
-=======
-    @Produces("text/xml")
->>>>>>> db4fd4492fe5b8a26f168b6f3aedc76c7d9849d1
     public List<Expenditure> listAllExpenditures() {
        final ArrayList<Expenditure> results = (ArrayList<Expenditure>) em.createQuery("SELECT e FROM Expenditure e", Expenditure.class).getResultList();
        return results;
@@ -137,11 +131,7 @@ public class CostInService {
     
     @GET
     @Path("/accounts")
-<<<<<<< HEAD
     @Produces("text/xml; charset=UTF-8")
-=======
-    @Produces("text/xml")
->>>>>>> db4fd4492fe5b8a26f168b6f3aedc76c7d9849d1
     public List<Account> listAllAccounts() {
        final ArrayList<Account> results = (ArrayList<Account>) em.createQuery("SELECT a FROM Account a", Account.class).getResultList();
        return results;
@@ -149,11 +139,7 @@ public class CostInService {
     
     @GET
     @Path("/accounts/subaccounts/{id:[0-9][0-9]*}")
-<<<<<<< HEAD
     @Produces("text/xml; charset=UTF-8")
-=======
-    @Produces("text/xml")
->>>>>>> db4fd4492fe5b8a26f168b6f3aedc76c7d9849d1
     public List<SubAccount> lookupSubAccountsByAccountIdJSON(@PathParam("id") int id) {
        account= em.find(Account.class, id);
        List<SubAccount> result= account.getSubAccounts();
