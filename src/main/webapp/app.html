@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <link rel="stylesheet" href="resources/css/my.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js">
+        </script>
+        <script src="resources/js/my.js">
+        </script>
+        <!-- User-generated css -->
+        <style>
+        </style>
+        <!-- User-generated js -->
+        <script>
+            try {
+
+    $(function() {
+
+    });
+
+  } catch (error) {
+    console.error("Your javascript has an error: " + error);
+  }
+        </script>
+    </head>
+    <body>
+    
+        <!-- Page 3 Kalendermenü-->
+        <div data-role="page" id="page1">
+            <div data-theme="a" data-role="header">
+                <h5>
+                    RitterLink
+                </h5>
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li>
+                            <a href="#page1" data-transition="slidedown" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">
+                                Verwaltung
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page2" data-transition="slidedown" data-theme="" data-icon="">
+                                Einnahmen
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page3" data-transition="slidedown" data-theme="" data-icon="">
+                                Ausgaben
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <a data-role="button" href="#page0" data-icon="login" data-iconpos="left" data-theme="a">Login</a>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-divider-theme="e" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Menü
+                    </li>
+                    <li data-theme="a">
+                        <a href="#subpage1" data-transition="slide">
+                            Reservierung abfragen
+                        </a>
+                    </li>
+                    <li data-theme="a">
+                        <a href="#subpage2" data-transition="slide">
+                            Reservierung hinzufügen
+                        </a>
+                    </li>
+                    <li data-theme="a">
+                        <a href="#subpage3" data-transition="slide">
+                            Tagesübersicht
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3>
+                    RitterLink
+                </h3>
+            </div>
+        </div>
+        
+        <!-- Subpage 1 Kalendermenü Reservierungsabfrage -->
+        <div data-role="page" id="subpage1">
+            <div data-theme="a" data-role="header">
+                <h5>
+                    RitterLink
+                </h5>
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li>
+                            <a href="#page1" data-transition="slidedown" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">
+                                Verwaltung
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page2" data-transition="slidedown" data-theme="" data-icon="">
+                                Einnahmen
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page3" data-transition="slidedown" data-theme="" data-icon="">
+                                Ausgaben
+                            </a>
+                        </li>
+                    </ul>
+                </div>              
+                <a data-role="button" href="#page1" data-icon="back" data-iconpos="left" data-theme="a">Zurück</a>
+            </div>
+            <div data-role="content">
+                <form action="">
+                    <div data-role="fieldcontain">
+                        <label for="customers">
+                            Gast:
+                        </label>
+                        <select id="customers" name="select-customer" data-theme="a">
+                            <option value="option1">
+                                Familie Müller
+                            </option>
+                        </select>
+                    </div>
+                    <input id="btn_dataquery_1" type="submit" data-theme="e" data-icon="search" data-iconpos="left" value="Daten abrufen" />
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="btn_arrival">
+                                Anreise:
+                            </label>
+                            <input name="arrival" id="btn_arrival" placeholder="" value="" type="date" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="btn_departure">
+                                Abreise:
+                            </label>
+                            <input name="departure" id="btn_departure" placeholder="" value="" type="date" />
+                        </fieldset>
+                    </div>
+                    <input id="btn_dataquery_2" type="submit" data-theme="e" data-icon="search" data-iconpos="left" value="Daten abrufen" />
+                </form>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3>
+                    RitterLink
+                </h3>
+            </div>
+        </div>
+      <div data-role="page" id="subpage2">
+            <div data-theme="a" data-role="header">
+                <h5>
+                    RitterLink
+                </h5>
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li>
+                            <a href="#page1" data-transition="slidedown" data-theme="" data-icon=""  class="ui-btn-active ui-state-persist">
+                                Verwaltung
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page2" data-transition="slidedown" data-theme="" data-icon="">
+                                Einnahmen
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page3" data-transition="slidedown" data-theme="" data-icon="">
+                                Ausgaben
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <a data-role="button" href="#page1" data-icon="back" data-iconpos="left" data-theme="a">Zurück</a>
+            </div>
+            <div data-role="content">
+                <form action="">
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="inpt_anreise">
+                                Anreise:
+                            </label>
+                            <input name="anreise" id="inpt_anreise" placeholder="" value="" type="date" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput13">
+                                Abreise:
+                            </label>
+                            <input name="" id="textinput13" placeholder="" value="" type="date" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="selectmenu7">
+                            Einzelzimmer:
+                        </label>
+                        <select name="" data-theme="e">
+                            <option value="option1">
+                                Option 1
+                            </option>
+                        </select>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="selectmenu8">
+                            Doppelzimmer:
+                        </label>
+                        <select name="" data-theme="e">
+                            <option value="option1">
+                                Option 1
+                            </option>
+                        </select>
+                    </div>
+                    <a data-role="button" href="#subpage2_1" data-icon="arrow-r" data-icon="search" data-iconpos="left" data-theme="e">Prüfen</a>
+                </form>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3>
+                    RitterLink
+                </h3>
+            </div>
+        </div>
+		<div data-role="page" id="subpage2_1">
+    		<div data-theme="a" data-role="header">
+        	<h5>
+            	RitterLink
+       		</h5>
+        	<div data-role="navbar" data-iconpos="left">
+            	<ul>
+                	<li>
+                    	<a href="#page1" data-transition="slidedown" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">
+                       		Verwaltung
+                    	</a>
+                	</li>
+               		<li>
+                    	<a href="#page2" data-transition="slidedown" data-theme="" data-icon="">
+                        	Einnahmen
+                    	</a>
+                	</li>
+                	<li>
+                    	<a href="#page3" data-transition="slidedown" data-theme="" data-icon="">
+                        	Ausgaben
+                    	</a>
+                	</li>
+            	</ul>
+        	</div>
+        	<a data-role="button" href="#subpage2" data-icon="back" data-iconpos="left" data-theme="a">Zurück</a>
+    	</div>
+    	<div data-role="content">
+        	<h2>
+            	Freie Zimmer
+        	</h2>
+        	<div class="ui-grid-a">
+            	<div class="ui-block-a">
+            	</div>
+            	<div class="ui-block-b">
+            	</div>
+        	</div>
+    	</div>
+    	<div data-theme="a" data-role="footer" data-position="fixed">
+        	<h3>
+            	RitterLink
+        	</h3>
+    	</div>
+		</div>
+		<div data-role="page" id="subpage3">
+    		<div data-theme="a" data-role="header">
+        	<h5>
+            	RitterLink
+       		</h5>
+        	<div data-role="navbar" data-iconpos="left">
+            	<ul>
+                	<li>
+                    	<a href="#page1" data-transition="slidedown" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">
+                       		Verwaltung
+                    	</a>
+                	</li>
+               		<li>
+                    	<a href="#page2" data-transition="slidedown" data-theme="" data-icon="">
+                        	Einnahmen
+                    	</a>
+                	</li>
+                	<li>
+                    	<a href="#page3" data-transition="slidedown" data-theme="" data-icon="">
+                        	Ausgaben
+                    	</a>
+                	</li>
+            	</ul>
+        	</div>
+        	<a data-role="button" href="#page1" data-icon="back" data-iconpos="left" data-theme="a">Zurück</a>
+    	</div>
+    	<div data-role="content">
+        	<h2>
+            	Tagesübersicht
+        	</h2>
+        	<div class="ui-grid-a">
+            	<div class="ui-block-a">
+            	</div>
+            	<div class="ui-block-b">
+            	</div>
+        	</div>
+    	</div>
+    	<div data-theme="a" data-role="footer" data-position="fixed">
+        	<h3>
+            	RitterLink
+        	</h3>
+    	</div>
+		</div>
+		
+    
+        <!-- Page 2 Einnahmen -->
+        <div data-role="page" id="page2">
+            <div data-theme="a" data-role="header">
+                <h5>
+                    RitterLink
+                </h5>
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li>
+                            <a href="#page1" data-transition="slidedown" data-theme="" data-icon="">
+                                Verwaltung
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page2" data-transition="slidedown" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">
+                                Einnahmen
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page3" data-transition="slidedown" data-theme="" data-icon="">
+                                Ausgaben
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <form action="">
+                    <div data-role="fieldcontain">
+                        <label for="customers">
+                            Kunde:
+                        </label>
+                        <select id="customers" name="select-customer" data-theme="e">
+                            <option value="option1">
+                                Option 1
+                            </option>
+                        </select>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="total">
+                                Rechnungsbetrag:
+                            </label>
+                            <input name="total" id="total" placeholder="" value="" type="text" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="inpayment">
+                                Erhalten:
+                            </label>
+                            <input name="inpayment" id="inpayment" placeholder="" value="" type="text" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="cashback">
+                                Rückgeld:
+                            </label>
+                            <input name="cashback" id="cashback" placeholder="" value="" type="text" />
+                        </fieldset>
+                    </div>
+                    <input id="btn_print" type="submit" data-theme="e" data-icon="info" data-iconpos="left" value="Rechnung drucken" />
+                    <input id="btn_booking" type="submit" data-theme="e" data-icon="gear" data-iconpos="left" value="Einnahmen buchen" />
+                </form>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3>
+                    RitterLink
+                </h3>
+            </div>
+        </div>
+    
+        <!-- Page 3 Ausgaben -->
+        <div data-role="page" id="page3">
+            <div data-theme="a" data-role="header">
+                <h5>
+                    RitterLink
+                </h5>
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li>
+                            <a href="#page1" data-transition="slidedown" data-theme="" data-icon="" >
+                                Verwaltung
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page2" data-transition="slidedown" data-theme="" data-icon="">
+                                Einnahmen
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page3" data-transition="slidedown" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">
+                                Ausgaben
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <form action="">
+                    <div data-role="fieldcontain">
+                        <label for="accounts">
+                            Konto:
+                        </label>
+                        <select id="accounts" name="select-account" data-theme="e">
+                            <option value="option1">
+                                Option 1
+                            </option>
+                        </select>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="subaccounts">
+                            Unterkonto:
+                        </label>
+                        <select id="subaccounts" name="select-subAccount" data-theme="e">
+                            <option value="option1">
+                                Option 1
+                            </option>
+                        </select>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput4">
+                                Datum:
+                            </label>
+                            <input name="" id="textinput4" placeholder="" value="" type="date" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput5">
+                                Text:
+                            </label>
+                            <input name="" id="textinput5" placeholder="" value="" type="text" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput6">
+                                Betrag:
+                            </label>
+                            <input name="" id="textinput6" placeholder="" value="" type="text" />
+                        </fieldset>
+                    </div>
+                    <a data-role="button" href="#page1" data-icon="gear" data-iconpos="left" data-theme="e">
+                        Buchen
+                    </a>
+                </form>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3>
+                    RitterLink
+                </h3>
+            </div>
+        </div> 
+		<!-- Page0 Login -->
+		<div data-role="page" id="page0">
+    		<div data-theme="a" data-role="header">
+        		<h5>RitterLink</h5>
+        		<div data-role="navbar" data-iconpos="left">
+            		<ul>
+                		<li>
+                    		<a href="#page1" data-transition="slidedown" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">
+                        		Verwaltung
+                    		</a>
+                		</li>
+                		<li>
+                    		<a href="#page2" data-transition="slidedown" data-theme="" data-icon="">
+                        		Einnahmen
+                    		</a>
+                		</li>
+                		<li>
+                    		<a href="#page3" data-transition="slidedown" data-theme="" data-icon="">
+                        		Ausgaben
+                    		</a>
+                		</li>
+            		</ul>
+        		</div>
+        		<a data-role="button" href="#page1" data-icon="back" data-iconpos="left" data-theme="a">Zurück</a>
+    		</div>
+    		<div data-role="content">
+        		<h2>Login</h2>
+        		<form action="">
+            		<div data-role="fieldcontain">
+                		<fieldset data-role="controlgroup">
+                    	<label for="textinput16">
+                        	Benutzer:
+                    	</label>
+                    	<input name="" id="textinput16" placeholder="" value="" type="text">
+                		</fieldset>
+            		</div>
+            		<div data-role="fieldcontain">
+                		<fieldset data-role="controlgroup">
+                    		<label for="textinput17">
+                        		Kennwort:
+                    		</label>
+                    		<input name="" id="textinput17" placeholder="" value="" type="password">
+                		</fieldset>
+            		</div>
+            		<input type="submit" data-theme="e" value="Anmelden">
+        		</form>
+    		</div>
+   			<div data-theme="a" data-role="footer" data-position="fixed">
+        		<h3>RitterLink</h3>
+    		</div>
+		</div>
+    </body>
+</html>

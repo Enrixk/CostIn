@@ -9,11 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -39,11 +41,9 @@ public class Expenditure implements Serializable  {
 	@Column(name="datum")
 	private String datum;
 
-
 	@NotNull
 	@NotEmpty
 	private String description;
-
 
 	@NotNull
 	@Column(name = "soll")
@@ -52,14 +52,18 @@ public class Expenditure implements Serializable  {
 	@NotNull
 	@Column(name = "haben")
 	private String haben;
-	
-	@NotNull
-	@Column(name = "realm")
-	private String realm;
 
 	@ManyToOne
     @JoinColumn(name="SUBACCOUNT_ID")
 	private SubAccount subAccount;
+	
+	@Transient
+	@XmlElement
+	private String Account;
+	
+	@Transient
+	@XmlElement
+	private String Subaccount;
 
 	public int getId() {
 		return id;
@@ -109,12 +113,21 @@ public class Expenditure implements Serializable  {
 		this.subAccount = subAccount;
 	}
 
-	public String getRealm() {
-		return realm;
+	public String getAccount() {
+		return this.getSubAccount().getAccount().getLabel();
 	}
 
-	public void setRealm(String realm) {
-		this.realm = realm;
+	public void setAccount(String account) {
+		Account = account;
+	}
+
+	public String getSubaccount() {
+		return this.getSubAccount().getLabel();
+		
+	}
+
+	public void setSubaccount(String subaccount) {
+		Subaccount = subaccount;
 	}
 
 

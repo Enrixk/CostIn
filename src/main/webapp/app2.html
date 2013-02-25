@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js">
+        </script>
+        <script src="my.js">
+        </script>
+        <!-- User-generated css -->
+        <style>
+        </style>
+        <!-- User-generated js -->
+        <script>
+            try {
+
+    $(function() {
+
+    });
+
+  } catch (error) {
+    console.error("Your javascript has an error: " + error);
+  }
+        </script>
+    </head>
+    <body>
+        <!-- Home -->
+        <div data-role="page" id="page1">
+            <div data-theme="a" data-role="header">
+                <h5>
+                    RitterLink
+                </h5>
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li>
+                            <a href="#page1" data-transition="slidedown" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">
+                                Ausgaben
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page1" data-transition="slidedown" data-theme="" data-icon="">
+                                Einnahmen
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page1" data-transition="slidedown" data-theme="" data-icon="">
+                                Kalender
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <form action="">
+                    <div data-role="fieldcontain">
+                        <label for="customers">
+                            Kunde:
+                        </label>
+                        <select id="customers" name="select-customer" data-theme="a">
+                            <option value="option1">
+                                Option 1
+                            </option>
+                        </select>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="total">
+                                Rechnungsbetrag:
+                            </label>
+                            <input name="total" id="total" placeholder="" value="" type="text" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="inpayment">
+                                Erhalten:
+                            </label>
+                            <input name="inpayment" id="inpayment" placeholder="" value="" type="text" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="cashback">
+                                R端ckgeld
+                            </label>
+                            <input name="cashback" id="cashback" placeholder="" value="" type="text" />
+                        </fieldset>
+                    </div>
+                    <input id="btn_print" type="submit" data-theme="e" data-icon="info" data-iconpos="left" value="Rechnung drucken" />
+                    <input id="btn_booking" type="submit" data-theme="e" data-icon="gear" data-iconpos="left" value="Einnahmen buchen" />
+                </form>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3>
+                    RitterLink
+                </h3>
+            </div>
+        </div>
+    </body>
+</html>

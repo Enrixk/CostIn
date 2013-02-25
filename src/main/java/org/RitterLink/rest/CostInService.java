@@ -63,12 +63,11 @@ public class CostInService {
     @POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response createExpenditure(@FormParam("select-subAccount") String subaccount_id, @FormParam("checkbox-realm") String realm, @FormParam("datum") String datum, @FormParam("description") String description, @FormParam("soll") String soll){
+	public Response createExpenditure(@FormParam("select-subAccount") String subaccount_id, @FormParam("datum") String datum, @FormParam("description") String description, @FormParam("soll") String soll){
     	Response.ResponseBuilder builder = null;
     	subAccount = em.find(SubAccount.class, Integer.parseInt(subaccount_id));
     	expenditure.setSubAccount(subAccount);
     	expenditure.setDatum(datum);
-    	expenditure.setRealm(realm);
     	expenditure.setDescription(description);
     	expenditure.setSoll(soll);
     	expenditure.setHaben("0,00");
@@ -118,7 +117,7 @@ public class CostInService {
     
     @GET
     @Path("/expenditures")
-    @Produces("text/xml")
+    @Produces("text/xml; charset=UTF-8")
     public List<Expenditure> listAllExpenditures() {
        final ArrayList<Expenditure> results = (ArrayList<Expenditure>) em.createQuery("SELECT e FROM Expenditure e", Expenditure.class).getResultList();
        return results;
@@ -126,7 +125,7 @@ public class CostInService {
     
     @GET
     @Path("/accounts")
-    @Produces("text/xml")
+    @Produces("text/xml; charset=UTF-8")
     public List<Account> listAllAccounts() {
        final ArrayList<Account> results = (ArrayList<Account>) em.createQuery("SELECT a FROM Account a", Account.class).getResultList();
        return results;
@@ -134,7 +133,7 @@ public class CostInService {
     
     @GET
     @Path("/accounts/subaccounts/{id:[0-9][0-9]*}")
-    @Produces("text/xml")
+    @Produces("text/xml; charset=UTF-8")
     public List<SubAccount> lookupSubAccountsByAccountIdJSON(@PathParam("id") int id) {
        account= em.find(Account.class, id);
        List<SubAccount> result= account.getSubAccounts();
