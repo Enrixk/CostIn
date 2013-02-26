@@ -22,7 +22,33 @@
         <script>
             try {
 
-    $(function() {
+    				$(function() {
+            			$( document ).ready( function() {          	
+                		$( "#container" ).show();
+                		//Fetches the initial member table
+
+                		form_ausgabenform_select_account_options_create();
+                		form_ausgabenform_select_subAccount_create(); 
+
+                		//Register a event listener on the sumbit action
+                		$('#form-ausgaben').submit(function(event) {
+                    	event.preventDefault();
+
+                    	var formValues = $(this).serialize();
+                    	registerAusgabe(formValues); 
+                	});
+
+                	//Register the cancel listener
+                	$('#cancel').click(function(event) {
+                    //clear input fields
+                    $('#reg-expenditures')[0].reset();
+
+                    //clear existing msgs
+                    $('span.invalid').remove();
+                    $('span.success').remove();
+                });
+            });
+  
 
     });
 
@@ -388,7 +414,8 @@
             </div>
         </div>
     
-        <!-- Page 3 Ausgaben -->
+<!------------------------------------------------------------------- Page 3 Ausgaben ------------------------------------------------------------------------------------------------------------>
+
         <div data-role="page" id="page3">
             <div data-theme="a" data-role="header">
                 <h5>
@@ -415,14 +442,14 @@
                 </div>
             </div>
             <div data-role="content">
-                <form action="">
+                <form name="form-ausgaben" id="form-ausgaben" method="post" data-ajax="false">
                     <div data-role="fieldcontain">
                         <label for="accounts">
                             Konto:
                         </label>
                         <select id="accounts" name="select-account" data-theme="e">
                             <option value="option1">
-                                Option 1
+                                Konto wählen
                             </option>
                         </select>
                     </div>
@@ -432,7 +459,7 @@
                         </label>
                         <select id="subaccounts" name="select-subAccount" data-theme="e">
                             <option value="option1">
-                                Option 1
+                                Konto wählen
                             </option>
                         </select>
                     </div>
@@ -460,9 +487,8 @@
                             <input name="" id="textinput6" placeholder="" value="" type="text" />
                         </fieldset>
                     </div>
-                    <a data-role="button" href="#page1" data-icon="gear" data-iconpos="left" data-theme="e">
-                        Buchen
-                    </a>
+                    <div id="formausgabenMsgs"></div>
+                    <input name="btn_buchen" type="submit" data-theme="e" value="Buchen"  data-icon="gear">
                 </form>
             </div>
             <div data-theme="a" data-role="footer" data-position="fixed">
@@ -471,6 +497,10 @@
                 </h3>
             </div>
         </div> 
+        
+<!------------------------------------------------------------------- Ende Page 3 Ausgaben ------------------------------------------------------------------------------------------------------------>
+
+        
 		<!-- Page0 Login -->
 		<div data-role="page" id="page0">
     		<div data-theme="a" data-role="header">
