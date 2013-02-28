@@ -21,7 +21,7 @@ function form_ausgabenform_select_account_options_create(){
 
 }
 
-function form_ausgabenform_select_subAccount_create(){
+function form_ausgabenform_select_subAccount_options_create(){
 	var account_id = $("#accounts").val();
 	if(account_id=="default"){
 		$('#subaccounts')
@@ -57,6 +57,7 @@ function form_ausgabenform_select_subAccount_create(){
 }
 
 function form_ausgabenform_input_btn_buchen_exceute(formValues) {
+
 	   //clear existing  msgs
 	   $('span.invalid').remove();
 	   $('span.success').remove();
@@ -66,7 +67,7 @@ function form_ausgabenform_input_btn_buchen_exceute(formValues) {
 	            console.log("Expenditures registered");
 
 	            //clear input fields
-	            $('#reg')[0].reset();
+	            $('#form-ausgaben')[0].reset();
 
 	            //mark success on the registration form
 	            $('#formausgabenMsgs').append($('<span class="success">Kosten wurden verbucht</span>'));

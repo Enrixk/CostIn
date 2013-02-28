@@ -26,17 +26,15 @@
             			$( document ).ready( function() {          	
                 		$( "#container" ).show();
                 		//Fetches the initial member table
-
-                		form_ausgabenform_select_account_options_create();
-                		form_ausgabenform_select_subAccount_create(); 
-
-                		//Register a event listener on the sumbit action
-                		$('#form-ausgaben').submit(function(event) {
-                    	event.preventDefault();
-
-                    	var formValues = $(this).serialize();
-                    	registerAusgabe(formValues); 
-                	});
+                		form_ausgabenform_select_account_options_create(); 
+                	
+                        //Register a event listener on the sumbit action
+                        $('#form-ausgaben').submit(function(event) {
+                            event.preventDefault();
+                            var formValues = $(this).serialize();
+                            form_ausgabenform_input_btn_buchen_exceute(formValues); 
+                        });
+                	
 
                 	//Register the cancel listener
                 	$('#cancel').click(function(event) {
@@ -447,7 +445,7 @@
                         <label for="accounts">
                             Konto:
                         </label>
-                        <select id="accounts" name="select-account" data-theme="e">
+                        <select id="accounts" name="select-account" data-theme="e" onchange="form_ausgabenform_select_subAccount_options_create()">
                             <option value="option1">
                                 Konto wählen
                             </option>
@@ -468,7 +466,7 @@
                             <label for="textinput4">
                                 Datum:
                             </label>
-                            <input name="" id="textinput4" placeholder="" value="" type="date" />
+                            <input name="datum" id="textinput4" placeholder="" value="" type="date" />
                         </fieldset>
                     </div>
                     <div data-role="fieldcontain">
@@ -476,7 +474,7 @@
                             <label for="textinput5">
                                 Text:
                             </label>
-                            <input name="" id="textinput5" placeholder="" value="" type="text" />
+                            <input name="description" id="textinput5" placeholder="" value="" type="text" />
                         </fieldset>
                     </div>
                     <div data-role="fieldcontain">
@@ -484,7 +482,7 @@
                             <label for="textinput6">
                                 Betrag:
                             </label>
-                            <input name="" id="textinput6" placeholder="" value="" type="text" />
+                            <input name="soll" id="textinput6" placeholder="" value="" type="text" />
                         </fieldset>
                     </div>
                     <div id="formausgabenMsgs"></div>

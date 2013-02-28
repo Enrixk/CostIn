@@ -63,17 +63,12 @@ public class CostInService {
     @POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-
-	
-
-	public Response createExpenditure(@FormParam("select-subAccount") String subaccount_id, @FormParam("checkbox-realm") String realm, @FormParam("datum") String datum, @FormParam("description") String description, @FormParam("soll") String soll){
+	public Response createExpenditure(@FormParam("select-subAccount") String subaccount_id,@FormParam("datum") String datum, @FormParam("description") String description, @FormParam("soll") String soll){
 
     	Response.ResponseBuilder builder = null;
     	subAccount = em.find(SubAccount.class, Integer.parseInt(subaccount_id));
     	expenditure.setSubAccount(subAccount);
     	expenditure.setDatum(datum);
-
-    	expenditure.setRealm(realm);
     	expenditure.setDescription(description);
     	expenditure.setSoll(soll);
     	expenditure.setHaben("0,00");

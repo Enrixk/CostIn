@@ -58,12 +58,6 @@ public class Expenditure implements Serializable  {
 	@Column(name = "haben")
 	private String haben;
 
-	
-	@NotNull
-	@Column(name = "realm")
-	private String realm;
-
-
 	@ManyToOne
     @JoinColumn(name="SUBACCOUNT_ID")
 	private SubAccount subAccount;
@@ -143,18 +137,5 @@ public class Expenditure implements Serializable  {
 	public void setSubaccount(String subaccount) {
 		Subaccount = subaccount;
 	}
-	public String getRealm() {
-		return realm;
-	}
-
-	public void setRealm(String realm) {
-		this.realm = realm;
-
-	}
-
-
-
-
-
 
 }
